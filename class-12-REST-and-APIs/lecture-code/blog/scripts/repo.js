@@ -2,6 +2,13 @@ var repos = {};
 
 repos.all = [];
 
-repos.requestRepos = function(callback) {
-  //TODO: How would you like to fetch your repos?
+repos.requestAll = function(callback) {
+  $.ajax({
+    type: 'GET',
+    url:'http://api.github.com/users/ardianajvazi/repos?sort=updated',
+    header: {Authorization: githubToken}
+  }).done(function(data){
+    repos.all = data;
+    // console.log(data);
+  }).done(callback);
 };

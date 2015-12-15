@@ -1,20 +1,17 @@
 var repoView = {};
 
+
 repoView.index = function() {
   repoView.ui();
-
   var _append = function(repo) {
     $('#about ul').append(repoView.render(repo));
   };
-
-  repos.all.filter(
-    //TODO: How would you like to filter the repos?
-  )
-  .forEach(_append);
+  repos.all.forEach(_append);
 };
 
 repoView.render = function(repo) {
   //TODO: How would you like to render this?
+  return $('<li>').text(repo.full_name);
 };
 
 repoView.ui = function() {
